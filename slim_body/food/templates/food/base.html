@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/jpg" href="{% static 'food/fav.jpg' %}">
+</head>
+<body>
+{% block menu %}
+<ul class="menu">
+  <li><a href="{% url 'index' %}">Главная</a></li>
+  <li><a href="{% url 'fitness' %}">Фитнес</a></li>
+  <li><a href="{% url 'diets' %}">Про диеты</a></li>
+  <li><a href="{% url 'recipes' %}">Рецепты</a></li>
+</ul>
+{% endblock %}
+{% block content %}
+{% endblock %}
+</body>
+</html>
