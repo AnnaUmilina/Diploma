@@ -1,0 +1,13 @@
+{% extends 'food/base.html' %}
+{% block content %}
+<h1>Регистрация: </h1>
+<div class="auto">
+    {{ error }}
+    <form action="{% url 'registration' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Зарегистрироваться" class="inp">
+    </form>
+    <p class="fix">Уже есть аккаунт? <a href="{% url 'authorisation' %}">Нажмите сюда</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'food/base.html' %}
+{% block content %}
+<h1>Авторизация: </h1>
+<div class="auto">
+<div>{{ error }}</div>
+<form action="{% url 'authorisation' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="inp avtoris">Войти</button>
+</form>
+<p class="fix">У Вас нет аккаунта? <a href="{% url 'registration' %}">Зарегистрируйтесь тут</a></p>
+</div>
+{% endblock %}

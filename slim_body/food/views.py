@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Articles
 
 
@@ -20,3 +20,8 @@ def recipes(request):
 
 def articles(request):
     return render(request, 'food/articles.html')
+
+
+def detail(request, id):
+    post = get_object_or_404(Articles, id=id)
+    return render(request, 'food/detail.html', {'post':post})

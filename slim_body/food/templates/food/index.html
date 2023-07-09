@@ -3,13 +3,14 @@
 {% block content %}
 <div class="container">
 {% for article in articles %}
-    <div class="article"><a href="#">
-        <div><img src="{{ article.image.url }}" alt=""></div>
+    <div class="article"><a href="{% url 'detail' article.id %}" target="_blank">
         <h3>{{ article.title }}</h3>
+        <div><img src="{{ article.image.url }}" alt=""></div>
         <p>{{ article.date | date:'d.m.Y' }}г.</p>
         <p>{{ article.description | truncatechars:200}}</p>
     </a>
     </div>
 {% endfor %}
+<div class="but">   </div>
 </div>
 {% endblock %}

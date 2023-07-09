@@ -9,6 +9,19 @@
 </head>
 <body>
 {% block menu %}
+<div class="but">
+    {% if user.is_authenticated %}
+    <p>Пользователь: {{ user.username|capfirst }}</p>
+    <form action="{% url 'logoutuser' %}" method="post">
+        {% csrf_token %}
+        <button class="btn">Выйти</button>
+    </form>
+    {% else %}
+    <p class="edit"><a href="{% url 'authorisation' %}">Вход</a></p>
+    <p class="edit"><a href="{% url 'registration' %}">Регистрация</a></p>
+    {% endif %}
+
+</div>
 <ul class="menu">
   <li><a href="{% url 'index' %}">Главная</a></li>
   <li><a href="{% url 'fitness' %}">Фитнес</a></li>

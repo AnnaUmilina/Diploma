@@ -23,10 +23,12 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('user/', include('user.urls')),
 
     path('diets/', views.diets, name='diets'),
     path('recipes/', views.recipes, name='recipes'),
     path('articles/', views.articles, name='articles'),
+    path('detail/<int:id>/', views.detail, name='detail'),
 
     path('fitness/', include('fitness.urls')),
 ]
