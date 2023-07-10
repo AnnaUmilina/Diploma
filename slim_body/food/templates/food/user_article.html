@@ -1,0 +1,16 @@
+{% extends 'food/base.html' %}
+{% block content %}
+<h1>Добавление новой статьи</h1>
+<form class="auto form" action="{% url 'create-article' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="add_article">
+    {% for field in form %}
+        <div class="label">
+            <label for="formInput#text">{{ field.label }} : </label>
+            {{ field }}
+        </div>
+        {% endfor %}
+        <button class="inp center">Сoхранить</button>
+    </div>
+</form>
+{% endblock %}

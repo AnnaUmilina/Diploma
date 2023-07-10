@@ -29,7 +29,17 @@
   <li><a href="{% url 'recipes' %}">Рецепты</a></li>
 </ul>
 {% endblock %}
+{% block lk %}
+{% if user.is_authenticated %}
+<div class="article block">
+        <div class="lk"><a href="{% url 'create-article' %}">Добавить статью</a></div>
+        <div class="lk"><a href="#">Дневник питания</a></div>
+        <div class="lk"><a href="#">Замеры</a></div>
+</div>
+{% endif %}
+{% endblock %}
 {% block content %}
+
 {% endblock %}
 </body>
 </html>
